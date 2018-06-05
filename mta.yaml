@@ -2,3 +2,19 @@ ID: purchaseManagement
 _schema-version: '2.0'
 description: Manage All Purchasing Activity for customer
 version: 0.0.1
+
+modules:
+ - name: hdb
+   type: hdb
+   path: hdb
+   requires:
+    - name: hdi-container
+
+resources:
+ - name: hdi-container
+   parameters:
+      config:
+         schema: PURCHASE_MANAGEMENT
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container

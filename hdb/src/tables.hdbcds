@@ -1,0 +1,86 @@
+namespace purchaseManagement.hdb;
+
+context data{
+
+context purchaseInquery {
+	
+	entity poItems{
+		key itemID : Integer;
+		catalougeId : Integer;
+		productModel : String(50);
+		productDescription : String(250);
+		quantity : Integer;
+		unit : String(10);
+		vendorID : Integer;
+		askproductPrice : Decimal(8,3);
+		reqdPackage : Integer;
+		redqShipment : Integer;
+		tax	: Decimal(8,3);
+		askTotalPrice : Decimal(8,3);
+		validFrom : LocalDate;
+		valiedTo : LocalDate;
+		status : Integer;
+		isResonse : Integer;
+		createdOn: LocalDate;
+		modifiedOn: LocalDate;
+	};
+	
+	entity poHeader{
+		key inqueryId : Integer;
+		itemId : Integer;
+		status : Integer;
+		createdOn: LocalDate;
+		modifiedOn: LocalDate;
+	};
+	
+	entity postatus{
+	key status : Integer;
+	statusDisplay: String(10);
+	statusDescription: String(100);
+	};
+	
+};
+
+context purchaseOrder {
+	
+	entity poItem{
+		itemId: Integer;
+		catalougeId : Integer;
+		productModel : String(50);
+		productDescription : String(250);
+		quantity : Integer;
+		unit : String(10);
+		vendorID : Integer;
+		isPacked : Integer;
+		shipmentType : Integer;
+		netprice : Decimal(8,3);
+		shipmentcost: Decimal(8,3);
+		tax : Decimal(8,3);
+		totalPrice : Decimal(8,3);
+		deliveryPromised : LocalDate;
+		actualDelivery : LocalDate;
+		status: Integer;
+		referanceId: Integer;
+	};
+	
+	entity poHeader{
+		orderId : Integer;
+		itemId : Integer;
+		netprice : Decimal(10,2);
+		discount : Decimal(10,2);
+		tax : Decimal(10,2);
+		totalPrice : Decimal(10,2);
+		status : Integer;
+		createdOn: LocalDate;
+		employeeId: Integer;
+		referanceId: Integer;
+	};
+	
+	entity postatus{
+		key status : Integer;
+		statusDisplay: String(10);
+		statusDescription: String(100);
+	};
+	
+};
+};
